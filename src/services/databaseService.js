@@ -3,47 +3,75 @@ const BASE_API = 'http://localhost:3001';
 
 class dbService {
    async getAffiliate(field = {}) {
-      const response = await axios.get(`${BASE_API}/affiliates`, {
-         params: field
-      });
-      return response.data;
+      try {
+         const response = await axios.get(`${BASE_API}/affiliates`, {
+            params: field
+         });
+         return response;
+      } catch (error) {
+         return error.response;
+      }
    }
 
    async getUser(field = {}) {
-      const response = await axios.get(`${BASE_API}/users`, {
-         params: field
-      });
-      return response.data;
+      try {
+         const response = await axios.get(`${BASE_API}/users`, {
+            params: field
+         });
+         return response;
+      } catch (error) {
+         return error.response;
+      }
    }
 
    async getProduct(field = {}) {
-      const response = await axios.get(`${BASE_API}/products`, {
-         params: field
-      });
-      return response.data;
+      try {
+         const response = await axios.get(`${BASE_API}/products`, {
+            params: field
+         });
+         return response;
+      } catch (error) {
+         return error.response;
+      }
    }
 
    async newUser(userData) {
-      const response = await axios.post(`${BASE_API}/register`, userData);
-      return response.data;
+      try {
+         const response = await axios.post(`${BASE_API}/register`, userData);
+         return response;
+      } catch (error) {
+         return error.response;
+      }
    }
 
    async newProduct(productData) {
-      const response = await axios.post(`${BASE_API}/products`, productData);
-      return response.data;
+      try {
+         const response = await axios.post(`${BASE_API}/products`, productData);
+         return response;
+      } catch (error) {
+         return error.response;
+      }
    }
 
    async newAffiliate(affiliateData) {
-      const response = await axios.post(
-         `${BASE_API}/affiliates`,
-         affiliateData
-      );
-      return response.data;
+      try {
+         const response = await axios.post(
+            `${BASE_API}/affiliates`,
+            affiliateData
+         );
+         return response;
+      } catch (error) {
+         return error.response;
+      }
    }
 
    async login(userData) {
-      const response = await axios.post(`${BASE_API}/login`, userData);
-      return response.data;
+      try {
+         const response = await axios.post(`${BASE_API}/login`, userData);
+         return response.data;
+      } catch (error) {
+         return error.response;
+      }
    }
 }
 
