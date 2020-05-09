@@ -2,23 +2,23 @@ const axios = require('axios');
 const BASE_API = 'http://localhost:3001';
 
 class dbService {
-   async getAffiliate(options = {}) {
+   async getAffiliate(field = {}) {
       const response = await axios.get(`${BASE_API}/affiliates`, {
-         params: options
+         params: field
       });
       return response.data;
    }
 
-   async getUser(options = {}) {
+   async getUser(field = {}) {
       const response = await axios.get(`${BASE_API}/users`, {
-         params: options
+         params: field
       });
       return response.data;
    }
 
-   async getProduct(options = {}) {
+   async getProduct(field = {}) {
       const response = await axios.get(`${BASE_API}/products`, {
-         params: options
+         params: field
       });
       return response.data;
    }
