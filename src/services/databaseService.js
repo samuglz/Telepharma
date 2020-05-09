@@ -41,8 +41,16 @@ class dbService {
 
    async newAffiliate(affiliateData) {
       const response = await axios.post(
-         `${process.env.BASEAPI}/products`,
+         `${process.env.BASEAPI}/affiliates`,
          affiliateData
+      );
+      return response.data;
+   }
+
+   async login(userData) {
+      const response = await axios.post(
+         `${process.env.BASEAPI}/login`,
+         userData
       );
       return response.data;
    }
