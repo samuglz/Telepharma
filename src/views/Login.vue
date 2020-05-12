@@ -64,6 +64,8 @@
 
 <script>
 import apiService from '../services/databaseService.js';
+import { mapMutations } from 'vuex';
+import { decode, storageAuth } from '@/services/auth';
 export default {
    data() {
       return {
@@ -83,17 +85,28 @@ export default {
             ? (this.isError = true)
             : this.successLogin(response);
       },
+
       resetForm() {
          this.userData = {
             email: '',
             password: ''
          };
       },
+
       successLogin(response) {
+         const dataToSave = {
+            accessToken: response.accessToken,
+            ...this.userData
+         };
+         storageAuth(dataToSave);
+         const dataToken = decode(response.accessToken);
+         this.setUserID(dataToken.sub);
+         this.setAuth(true);
          this.resetForm();
-         localStorage.setItem('accessToken', response.accessToken);
          this.$router.push('/shop');
-      }
+      },
+
+      ...mapMutations(['setAuth', 'setUserID'])
    }
 };
 </script>

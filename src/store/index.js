@@ -165,9 +165,19 @@ export default new Vuex.Store({
             'ShortHairTheCaesar',
             'ShortHairTheCaesarSidePart'
          ]
+      },
+      isAuth: false,
+      userID: null,
+      cart: []
+   },
+   mutations: {
+      setAuth(state, payload) {
+         state.isAuth = payload;
+      },
+      setUserID(state, payload) {
+         state.userID = payload;
       }
    },
-   mutations: {},
    actions: {},
    modules: {}
 });

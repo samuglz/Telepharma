@@ -126,8 +126,9 @@
 </template>
 
 <script>
-import apiService from '../services/databaseService.js';
-import { mapState } from 'vuex';
+import apiService from '../services/databaseService';
+import { mapState, mapMutations } from 'vuex';
+import { storageAuth, decode } from '@/services/auth';
 export default {
    mounted() {
       this.generateAvatar();
@@ -150,12 +151,13 @@ export default {
       ...mapState(['avatars'])
    },
    methods: {
+      ...mapMutations(['setAuth', 'setUserID']),
       async submit() {
          const api = new apiService();
          let response = await api.newUser(this.userData);
          response.status !== 201
             ? this.showError(response)
-            : this.successRegister();
+            : this.successRegister(response);
       },
       resetForm() {
          this.userData = {
@@ -175,7 +177,16 @@ export default {
          this.codeStatus = 201;
          this.messageError = '';
       },
-      successRegister() {
+      successRegister(response) {
+         const dataToSave = {
+            ...response.data,
+            ...this.userData
+         };
+         storageAuth(dataToSave);
+         const dataToken = decode(response.data.accessToken);
+         console.log(dataToken);
+         this.setUserID(dataToken.sub);
+         this.setAuth(true);
          this.clearError();
          this.resetForm();
          this.$router.push('/shop');
