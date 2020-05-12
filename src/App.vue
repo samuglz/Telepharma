@@ -1,11 +1,6 @@
 <template>
    <div id="app">
-      <div id="nav">
-         <router-link to="/">Home</router-link>|
-         <router-link to="/shop">Shop</router-link>|
-         <router-link to="/login">Login</router-link>|
-         <router-link to="/dashboard">Dashboard</router-link>
-      </div>
+      <NavBar />
       <router-view />
       {{ this.$store.state.userID }}
    </div>
@@ -14,6 +9,7 @@
 <script>
 import { verifyToken, decode } from '@/services/auth';
 import { mapMutations } from 'vuex';
+import NavBar from '@/components/Nav';
 export default {
    data() {
       return {
@@ -31,6 +27,9 @@ export default {
          this.setUserID(dataToken.sub);
          this.$router.push('/shop');
       }
+   },
+   components: {
+      NavBar
    }
 };
 </script>
