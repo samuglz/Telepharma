@@ -36,7 +36,7 @@
 import { mapState, mapMutations } from 'vuex';
 import cartPanel from '@/components/CartPanel';
 export default {
-   name: 'nav',
+   name: 'NavBar',
    components: {
       cartPanel
    },

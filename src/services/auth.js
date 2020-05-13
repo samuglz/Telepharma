@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const moment = require('moment');
 const apiService = require('./databaseService.js');
 
 const existToken = () => {
@@ -28,9 +27,8 @@ const autoLogin = async () => {
 
 const isExpired = () => {
    const { exp } = decode(localStorage.getItem('accessToken'));
-   let expFormat = moment.unix(exp).format('LLLL');
-   const date = moment();
-   return moment(date).isAfter(expFormat);
+   const date = parseInt(Date.now() / 1000);
+   return date > exp;
 };
 
 export const decode = token => {
