@@ -168,7 +168,52 @@ export default new Vuex.Store({
       },
       isAuth: false,
       userID: null,
-      cart: []
+      cart: [
+         {
+            id: 1,
+            name: 'Vindilioxacin',
+            description:
+               'Ut consequat semper viverra nam libero justo. Sit amet volutpat consequat mauris nunc congue. Risus quis varius quam quisque. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo.',
+            price: 7.78,
+            skuStripe: 'sku_HDpSOjUgZnABgI',
+            image:
+               'https://images.pexels.com/photos/593451/pexels-photo-593451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            quantity: 1
+         },
+         {
+            id: 2,
+            name: 'Vindilioxacin',
+            description:
+               'Ut consequat semper viverra nam libero justo. Sit amet volutpat consequat mauris nunc congue. Risus quis varius quam quisque. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo.',
+            price: 7.78,
+            skuStripe: 'sku_HDpSOjUgZnABgI',
+            image:
+               'https://images.pexels.com/photos/593451/pexels-photo-593451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            quantity: 3
+         },
+         {
+            id: 2,
+            name: 'Vindilioxacin',
+            description:
+               'Ut consequat semper viverra nam libero justo. Sit amet volutpat consequat mauris nunc congue. Risus quis varius quam quisque. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo.',
+            price: 7.78,
+            skuStripe: 'sku_HDpSOjUgZnABgI',
+            image:
+               'https://images.pexels.com/photos/593451/pexels-photo-593451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            quantity: 3
+         },
+         {
+            id: 2,
+            name: 'Vindilioxacin',
+            description:
+               'Ut consequat semper viverra nam libero justo. Sit amet volutpat consequat mauris nunc congue. Risus quis varius quam quisque. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo.',
+            price: 7.78,
+            skuStripe: 'sku_HDpSOjUgZnABgI',
+            image:
+               'https://images.pexels.com/photos/593451/pexels-photo-593451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            quantity: 3
+         }
+      ]
    },
    mutations: {
       setAuth(state, payload) {
@@ -176,6 +221,11 @@ export default new Vuex.Store({
       },
       setUserID(state, payload) {
          state.userID = payload;
+      },
+      deleteCartProduct(state, payload) {
+         state.cart = state.cart.filter(product => {
+            return product.id !== payload;
+         });
       }
    },
    actions: {},

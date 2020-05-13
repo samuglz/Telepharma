@@ -9,11 +9,19 @@
          </font-awesome-layers>
       </button>
       <div class="p-4 shadow-md bg-white rounded-md dropdown-content">
-         <div class="flex flex-col justify-center items-center">
-            <cart-element />
-            <cart-element />
-            <cart-element />
-            <cart-element />
+         <div class="flex flex-col">
+            <div v-if="cart.length === 0" class="text-center">
+               <span class="text-sm text-gray-500"
+                  >No hay articulos en el carrito</span
+               >
+            </div>
+            <div v-else>
+               <cart-element
+                  v-for="(product, index) in cart"
+                  :key="index"
+                  :product="product"
+               />
+            </div>
          </div>
       </div>
    </div>
@@ -42,9 +50,11 @@ export default {
 .dropdown-content {
    display: none;
    position: absolute;
-   left: -2.5em;
-   min-width: 160px;
+   right: 0;
+   min-width: 325px;
+   max-height: 400px;
    z-index: 1;
+   overflow-y: auto;
 }
 
 .dropdown:hover .dropdown-content {

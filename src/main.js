@@ -10,14 +10,15 @@ import {
    faSignOutAlt,
    faSignInAlt,
    faUserCog,
-   faShoppingCart
+   faShoppingCart,
+   faTrash
 } from '@fortawesome/free-solid-svg-icons';
 import {
    FontAwesomeIcon,
    FontAwesomeLayers,
    FontAwesomeLayersText
 } from '@fortawesome/vue-fontawesome';
-library.add(faSignOutAlt, faSignInAlt, faUserCog, faShoppingCart);
+library.add(faSignOutAlt, faSignInAlt, faUserCog, faShoppingCart, faTrash);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('font-awesome-layers', FontAwesomeLayers);
 Vue.component('font-awesome-layers-text', FontAwesomeLayersText);
