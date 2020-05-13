@@ -25,7 +25,7 @@ export default {
          this.setAuth(true);
          const dataToken = decode(localStorage.getItem('accessToken'));
          this.setUserID(dataToken.sub);
-         this.$router.push('/shop');
+         this.$router.push('/');
       }
    },
    components: {

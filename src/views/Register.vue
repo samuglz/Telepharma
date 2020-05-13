@@ -1,5 +1,5 @@
 <template>
-   <div class="flex justify-center items-center h-screen bg-green-400">
+   <div class="flex justify-center items-center md:h-screen bg-green-400">
       <div class="w-full max-w-3xl">
          <div class="md:mt-0 md:mb-6 text-center">
             <h1 class=" text-4xl font-bold text-white">
@@ -9,10 +9,10 @@
          <div
             class="md:grid md:grid-cols-2 flex flex-col bg-white shadow-md rounded"
          >
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center mt-5 md:mt-0">
                <div>
                   <img
-                     class="rounded-full"
+                     class="rounded-full shadow-md"
                      :src="userData.avatar"
                      alt="Avatar Picture"
                      width="264"
@@ -20,14 +20,17 @@
                   />
                </div>
                <button
-                  class="w-3/4 mt-3 py-2 px-4 bg-green-500 hover:bg-green-700 text-white font-bold rounded"
+                  class="w-3/4 mt-6 py-2 px-4 bg-green-500 hover:bg-green-700 text-white font-bold rounded"
                   @click="generateAvatar"
                >
                   Generar Avatar
                </button>
-               <span class="text-gray-600 text-xs mt-2"
-                  >¡Crea tu propio avatar!</span
-               >
+               <span class="text-gray-600 text-xs mt-2">
+                  ¡Crea tu propio avatar!
+               </span>
+            </div>
+            <div class="md:hidden flex justify-center mt-5">
+               <hr class="w-4/5 border-green-400" />
             </div>
             <form
                @submit.prevent="submit"
@@ -37,8 +40,9 @@
                   <label
                      class="block text-gray-700 text-sm font-bold mb-2"
                      for="firstName"
-                     >Nombre</label
                   >
+                     Nombre
+                  </label>
                   <input
                      autocomplete="off"
                      title="Lütfen işaretli yerleri doldurunuz"
@@ -54,8 +58,9 @@
                   <label
                      class="block text-gray-700 text-sm font-bold mb-2"
                      for="lastName"
-                     >Apellidos</label
                   >
+                     Apellidos
+                  </label>
                   <input
                      autocomplete="off"
                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -70,8 +75,9 @@
                   <label
                      class="block text-gray-700 text-sm font-bold mb-2"
                      for="email"
-                     >Correo Electrónico</label
                   >
+                     Correo Electrónico
+                  </label>
                   <input
                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                      type="email"
@@ -85,8 +91,9 @@
                   <label
                      class="block text-gray-700 text-sm font-bold mb-2"
                      for="password"
-                     >Contraseña</label
                   >
+                     Contraseña
+                  </label>
                   <input
                      autocomplete="off"
                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -106,11 +113,11 @@
                   </button>
                   <div class="text-sm mt-2 text-gray-600">
                      ¿Ya tienes una cuenta de usuario?
-                     <router-link to="/login"
-                        ><span class="hover:underline text-green-500 font-bold">
+                     <router-link to="/login">
+                        <span class="hover:underline text-green-500 font-bold">
                            Iniciar sesión
-                        </span></router-link
-                     >
+                        </span>
+                     </router-link>
                   </div>
                </div>
                <div
@@ -189,7 +196,7 @@ export default {
          this.setAuth(true);
          this.clearError();
          this.resetForm();
-         this.$router.push('/shop');
+         this.$router.push('/');
       },
       randomNumber(maxNumber) {
          return Math.floor(Math.random() * maxNumber);

@@ -103,7 +103,7 @@ export default {
          this.setUserID(dataToken.sub);
          this.setAuth(true);
          this.resetForm();
-         this.$router.push('/shop');
+         this.$router.push('/');
       },
 
       ...mapMutations(['setAuth', 'setUserID'])

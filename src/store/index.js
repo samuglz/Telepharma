@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
    state: {
       avatars: {
-         avatarStyle: ['Circle', 'Transparent'],
+         avatarStyle: ['Transparent'],
          accessoriesType: [
             'Blank',
             'Kurt',
