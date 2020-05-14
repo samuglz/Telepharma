@@ -6,6 +6,7 @@ import Register from '@/views/Register.vue';
 import Dashboard from '@/views/Dashboard.vue';
 import Shop from '@/views/Shop.vue';
 import Pharmacies from '@/views/Pharmacies.vue';
+import Cart from '@/views/Cart.vue';
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,14 @@ const routes = [
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
+      meta: {
+         requiresAuth: true
+      }
+   },
+   {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart,
       meta: {
          requiresAuth: true
       }

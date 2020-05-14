@@ -1,5 +1,5 @@
 <template>
-   <div class="mb-4 shadow-md p-3 rounded">
+   <div class="mb-4 shadow-md p-3 mx-3 rounded hover:bg-gray-100">
       <div class="flex">
          <img
             class="rounded-full"
@@ -37,6 +37,7 @@
 
 <script>
 import { mapMutations } from 'vuex';
+import { normalizePrice } from '@/utils/utils';
 export default {
    name: 'CartElement',
    props: {
@@ -47,19 +48,13 @@ export default {
    },
    computed: {
       totalPrice: function() {
-         return this.normalizePrice(this.product.price * this.product.quantity);
+         return normalizePrice(this.product.price * this.product.quantity);
       },
       unitPrice: function() {
-         return this.normalizePrice(this.product.price);
+         return normalizePrice(this.product.price);
       }
    },
    methods: {
-      normalizePrice(number) {
-         return parseFloat(number)
-            .toFixed(2)
-            .toString()
-            .replace('.', ',');
-      },
       deleteProduct(id) {
          this.deleteCartProduct(id);
       },

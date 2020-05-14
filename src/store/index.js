@@ -181,7 +181,7 @@ export default new Vuex.Store({
             quantity: 1
          },
          {
-            id: 2,
+            id: 4,
             name: 'Vindilioxacin',
             description:
                'Ut consequat semper viverra nam libero justo. Sit amet volutpat consequat mauris nunc congue. Risus quis varius quam quisque. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo.',
@@ -203,7 +203,7 @@ export default new Vuex.Store({
             quantity: 3
          },
          {
-            id: 2,
+            id: 3,
             name: 'Vindilioxacin',
             description:
                'Ut consequat semper viverra nam libero justo. Sit amet volutpat consequat mauris nunc congue. Risus quis varius quam quisque. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo.',
@@ -214,6 +214,22 @@ export default new Vuex.Store({
             quantity: 3
          }
       ]
+   },
+   getters: {
+      totalPrice(state) {
+         let count = 0;
+         state.cart.forEach(product => {
+            count += product.price * product.quantity;
+         });
+         return count;
+      },
+      totalUnits(state) {
+         let count = 0;
+         state.cart.forEach(product => {
+            count += product.quantity;
+         });
+         return count;
+      }
    },
    mutations: {
       setAuth(state, payload) {

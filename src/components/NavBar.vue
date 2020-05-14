@@ -48,6 +48,7 @@ export default {
       logout() {
          this.setAuth(false);
          localStorage.setItem('accessToken', '');
+         this.$router.push('/');
       }
    }
 };

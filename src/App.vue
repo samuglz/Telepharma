@@ -2,7 +2,6 @@
    <div id="app">
       <NavBar />
       <router-view />
-      {{ this.$store.state.userID }}
    </div>
 </template>
 
