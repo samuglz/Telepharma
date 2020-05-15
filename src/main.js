@@ -11,17 +11,37 @@ import {
    faSignInAlt,
    faUserCog,
    faShoppingCart,
-   faTrash
+   faTrash,
+   faListUl,
+   faSpinner
 } from '@fortawesome/free-solid-svg-icons';
 import {
    FontAwesomeIcon,
    FontAwesomeLayers,
    FontAwesomeLayersText
 } from '@fortawesome/vue-fontawesome';
-library.add(faSignOutAlt, faSignInAlt, faUserCog, faShoppingCart, faTrash);
+library.add(
+   faSignOutAlt,
+   faSignInAlt,
+   faUserCog,
+   faShoppingCart,
+   faTrash,
+   faListUl,
+   faSpinner
+);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('font-awesome-layers', FontAwesomeLayers);
 Vue.component('font-awesome-layers-text', FontAwesomeLayersText);
+
+import vmodal from 'vue-js-modal';
+Vue.use(vmodal, {
+   dialog: true,
+   dynamic: true,
+   dynamicDefaults: {
+      foo: 'foo'
+   },
+   injectModalsContainer: true
+});
 
 Vue.config.productionTip = false;
 

@@ -11,17 +11,28 @@
          >
             <div class="flex flex-col justify-center items-center mt-5 md:mt-0">
                <div>
+                  <div
+                     class="img-size flex justify-center items-center"
+                     v-show="!isLoadedImg"
+                  >
+                     <font-awesome-icon
+                        icon="spinner"
+                        class="rotation text-5xl"
+                     />
+                  </div>
                   <img
                      class="rounded-full shadow-md"
                      :src="userData.avatar"
                      alt="Avatar Picture"
                      width="264"
                      height="280"
+                     v-show="isLoadedImg"
+                     @load="loaded"
                   />
                </div>
                <button
                   class="w-3/4 mt-6 py-2 px-4 bg-green-500 hover:bg-green-700 text-white font-bold rounded"
-                  @click="generateAvatar"
+                  @click="loadImg"
                >
                   Generar Avatar
                </button>
@@ -139,6 +150,7 @@ import { storageAuth, decode } from '@/services/auth';
 export default {
    mounted() {
       this.generateAvatar();
+      this.loadImg();
    },
    data() {
       return {
@@ -150,6 +162,7 @@ export default {
             avatar: ''
          },
          isError: false,
+         isLoadedImg: false,
          codeStatus: 201,
          messageError: ''
       };
@@ -159,12 +172,22 @@ export default {
    },
    methods: {
       ...mapMutations(['setAuth', 'setUserID']),
+
       async submit() {
          const api = new apiService();
          let response = await api.newUser(this.userData);
          response.status !== 201
             ? this.showError(response)
             : this.successRegister(response);
+      },
+      loadImg() {
+         this.isLoadedImg = false;
+         this.$nextTick(() => {
+            this.generateAvatar();
+         });
+      },
+      loaded() {
+         this.isLoadedImg = true;
       },
       resetForm() {
          this.userData = {
@@ -252,4 +275,20 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.img-size {
+   width: 264px;
+   height: 280px;
+}
+.rotation {
+   animation: rotation 0.75s linear infinite;
+}
+@keyframes rotation {
+   0% {
+      transform: rotate(0);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+</style>

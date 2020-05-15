@@ -5,7 +5,9 @@
             <img src="../assets/logo.svg" width="100" alt="Logo Telepharma" />
          </router-link>
          <div class="flex justify-end items-center flex-grow">
-            <cart-panel />
+            <div v-if="path !== '/cart'">
+               <cart-panel />
+            </div>
             <div v-if="isAuth" class="flex items-center">
                <router-link
                   class="mx-1 px-4 py-1 text-green-400 rounded text-3xl font-bold"
@@ -36,6 +38,12 @@
 import { mapState, mapMutations } from 'vuex';
 import cartPanel from '@/components/CartPanel';
 export default {
+   props: {
+      path: {
+         type: String,
+         required: true
+      }
+   },
    name: 'NavBar',
    components: {
       cartPanel
