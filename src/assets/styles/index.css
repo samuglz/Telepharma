@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
+@responsive {
+   .container-cart-view {
+      min-width: 500px;
+   }
+}
 @tailwind utilities;

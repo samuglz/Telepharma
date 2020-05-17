@@ -184,6 +184,16 @@ export default new Vuex.Store({
             count += product.quantity;
          });
          return count;
+      },
+      productsToPay(state) {
+         let payment = [];
+         state.cart.forEach(product => {
+            payment.push({
+               price: product.skuStripe,
+               quantity: product.quantity
+            });
+         });
+         return payment;
       }
    },
    mutations: {
@@ -199,7 +209,27 @@ export default new Vuex.Store({
          });
       },
       addCartProduct(state, payload) {
-         state.cart.push(payload);
+         let duplicate = false;
+         let position = 0;
+         state.cart.forEach((product, index) => {
+            if (product.id === payload.id) {
+               duplicate = true;
+               position = index;
+            }
+         });
+         duplicate
+            ? (state.cart[position].quantity += payload.quantity)
+            : state.cart.push(payload);
+      },
+      decrementCartProduct(state, payload) {
+         state.cart.forEach(product => {
+            if (product.id === payload.id) {
+               product.quantity > 1 ? (product.quantity -= 1) : null;
+            }
+         });
+      },
+      resetCart(state) {
+         state.cart = [];
       }
    },
    actions: {},

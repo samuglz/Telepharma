@@ -75,7 +75,7 @@ export default {
 .dropdown-content {
    display: none;
    position: absolute;
-   right: -2em;
+   right: -8em;
    min-width: 325px;
    max-height: 400px;
    z-index: 1;

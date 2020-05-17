@@ -13,7 +13,11 @@ import {
    faShoppingCart,
    faTrash,
    faListUl,
-   faSpinner
+   faSpinner,
+   faSortAmountDown,
+   faSortAmountUpAlt,
+   faDumpster,
+   faCreditCard
 } from '@fortawesome/free-solid-svg-icons';
 import {
    FontAwesomeIcon,
@@ -27,7 +31,11 @@ library.add(
    faShoppingCart,
    faTrash,
    faListUl,
-   faSpinner
+   faSpinner,
+   faSortAmountDown,
+   faSortAmountUpAlt,
+   faDumpster,
+   faCreditCard
 );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('font-awesome-layers', FontAwesomeLayers);
