@@ -103,7 +103,7 @@ export default {
          this.setUserID(dataToken.sub);
          this.setAuth(true);
          this.resetForm();
-         this.$router.push('/');
+         this.$router.push(`${localStorage.getItem('initialPath')}`);
       },
 
       ...mapMutations(['setAuth', 'setUserID'])
