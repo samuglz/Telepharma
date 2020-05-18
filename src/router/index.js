@@ -1,12 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '@/store';
-import Login from '@/views/Login.vue';
-import Register from '@/views/Register.vue';
-import Dashboard from '@/views/Dashboard.vue';
-import Shop from '@/views/Shop.vue';
-import Pharmacies from '@/views/Pharmacies.vue';
-import Cart from '@/views/Cart.vue';
 
 Vue.use(VueRouter);
 
@@ -14,22 +8,26 @@ const routes = [
    {
       path: '/',
       name: 'Shop',
-      component: Shop
+      component: () =>
+         import(/* webpackChunkName: "about" */ '../views/Shop.vue')
    },
    {
       path: '/login',
       name: 'Login',
-      component: Login
+      component: () =>
+         import(/* webpackChunkName: "about" */ '../views/Login.vue')
    },
    {
       path: '/register',
       name: 'Register',
-      component: Register
+      component: () =>
+         import(/* webpackChunkName: "about" */ '../views/Register.vue')
    },
    {
       path: '/dashboard',
       name: 'Dashboard',
-      component: Dashboard,
+      component: () =>
+         import(/* webpackChunkName: "about" */ '../views/Dashboard.vue'),
       meta: {
          requiresAuth: true
       }
@@ -37,25 +35,23 @@ const routes = [
    {
       path: '/cart',
       name: 'Cart',
-      component: Cart,
+      component: () =>
+         import(/* webpackChunkName: "about" */ '../views/Cart.vue'),
       meta: {
          requiresAuth: true
       }
    },
    {
-      path: '/pharmacies',
-      name: 'Pharmacies',
-      component: Pharmacies
-   },
-   {
       path: '/successfullBuy',
       name: 'SuccessfullBuy',
-      component: Pharmacies
+      component: () =>
+         import(/* webpackChunkName: "about" */ '../views/SuccessfullBuy.vue')
    },
    {
       path: '/canceledBuy',
       name: 'CanceledBuy',
-      component: Pharmacies
+      component: () =>
+         import(/* webpackChunkName: "about" */ '../views/CanceledBuy.vue')
    }
 ];
 
@@ -66,9 +62,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+   localStorage.setItem('initialPath', location.pathname);
    if (to.matched.some(record => record.meta.requiresAuth)) {
       if (!store.state.isAuth) {
-         localStorage.setItem('initialPath', location.pathname);
          next({
             path: '/login'
          });
