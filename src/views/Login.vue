@@ -64,9 +64,12 @@
 
 <script>
 import apiService from '../services/databaseService.js';
-import { mapMutations } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 import { decode, storageAuth } from '@/services/auth';
 export default {
+   mounted() {
+      this.isAuth ? this.$router.push('/') : null;
+   },
    data() {
       return {
          userData: {
@@ -76,6 +79,9 @@ export default {
          isError: false,
          messageError: 'El usuario o la contraseña son incorrectos'
       };
+   },
+   computed: {
+      ...mapState(['isAuth'])
    },
    methods: {
       async submit() {

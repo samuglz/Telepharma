@@ -7,8 +7,8 @@
 
 <script>
 // import { verifyToken, decode } from '@/services/auth';
-// import { mapMutations } from 'vuex';
 import NavBar from '@/components/NavBar';
+import { mapMutations } from 'vuex';
 export default {
    // data() {
    //    return {
@@ -17,8 +17,12 @@ export default {
    // },
    mounted() {
       // verifyToken() ? this.relogin() : null;
+      localStorage.getItem('cart')
+         ? this.setCart(JSON.parse(localStorage.getItem('cart')))
+         : null;
    },
    methods: {
+      ...mapMutations(['setCart'])
       // ...mapMutations(['setAuth', 'setUserID']),
       // relogin() {
       //    this.setAuth(true);

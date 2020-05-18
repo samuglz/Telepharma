@@ -207,6 +207,7 @@ export default new Vuex.Store({
          state.cart = state.cart.filter(product => {
             return product.id !== payload;
          });
+         localStorage.setItem('cart', JSON.stringify(state.cart));
       },
       addCartProduct(state, payload) {
          let duplicate = false;
@@ -220,6 +221,7 @@ export default new Vuex.Store({
          duplicate
             ? (state.cart[position].quantity += payload.quantity)
             : state.cart.push(payload);
+         localStorage.setItem('cart', JSON.stringify(state.cart));
       },
       decrementCartProduct(state, payload) {
          state.cart.forEach(product => {
@@ -227,9 +229,14 @@ export default new Vuex.Store({
                product.quantity > 1 ? (product.quantity -= 1) : null;
             }
          });
+         localStorage.setItem('cart', JSON.stringify(state.cart));
       },
       resetCart(state) {
          state.cart = [];
+         localStorage.setItem('cart', '');
+      },
+      setCart(state, payload) {
+         state.cart = payload;
       }
    },
    actions: {},

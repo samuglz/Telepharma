@@ -130,8 +130,8 @@ export default {
          stripe.redirectToCheckout({
             lineItems: this.productsToPay,
             mode: 'payment',
-            successUrl: `${location.href}`,
-            cancelUrl: `${location.href}cart`
+            successUrl: `${location.origin}/successfullBuy`,
+            cancelUrl: `${location.origin}/canceledBuy`
          });
       }
    }
