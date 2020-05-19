@@ -219,7 +219,15 @@ export default {
          this.setAuth(true);
          this.clearError();
          this.resetForm();
-         this.$router.push('/');
+         this.$swal({
+            title: 'Registro Correcto',
+            text: 'Te has registrado correctamente en la aplicación',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+         }).then(() => {
+            this.$router.push('/');
+         });
       },
       randomNumber(maxNumber) {
          return Math.floor(Math.random() * maxNumber);

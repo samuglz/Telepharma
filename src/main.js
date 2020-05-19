@@ -15,7 +15,7 @@ import {
    faListUl,
    faSpinner,
    faSortAmountDown,
-   faSortAmountUpAlt,
+   faSortAmountDownAlt,
    faDumpster,
    faCreditCard
 } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +33,7 @@ library.add(
    faListUl,
    faSpinner,
    faSortAmountDown,
-   faSortAmountUpAlt,
+   faSortAmountDownAlt,
    faDumpster,
    faCreditCard
 );

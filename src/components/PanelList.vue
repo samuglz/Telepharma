@@ -33,7 +33,7 @@
             >
                <font-awesome-icon
                   title="Baratos primero"
-                  icon="sort-amount-up-alt"
+                  icon="sort-amount-down-alt"
                />
             </button>
             <button

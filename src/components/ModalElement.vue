@@ -85,7 +85,9 @@ export default {
          if (this.quantity > 1) this.quantity -= 1;
       },
       formatInput() {
-         if (this.quantity === '') this.quantity = 1;
+         this.quantity === ''
+            ? (this.quantity = 1)
+            : (this.quantity = parseInt(this.quantity));
       },
       addToCart() {
          this.productFinal = { ...this.product, quantity: this.quantity };

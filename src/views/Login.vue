@@ -52,7 +52,7 @@
                </div>
             </div>
             <div
-               class="mb-4 w-full text-center text-red-500 text-white rounded font-bold py-2 px-4"
+               class="bounce mb-4 w-full text-center text-red-500 text-white rounded font-bold py-2 px-4"
                v-if="isError"
             >
                {{ messageError }}.
@@ -85,6 +85,7 @@ export default {
    },
    methods: {
       async submit() {
+         this.isError = false;
          const api = new apiService();
          let response = await api.login(this.userData);
          !response.accessToken
@@ -109,7 +110,15 @@ export default {
          this.setUserID(dataToken.sub);
          this.setAuth(true);
          this.resetForm();
-         this.$router.push(`${localStorage.getItem('initialPath')}`);
+         this.$swal({
+            title: 'Login Correcto',
+            text: 'Te has logeado correctamente',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+         }).then(() => {
+            this.$router.push(`${localStorage.getItem('initialPath')}`);
+         });
       },
 
       ...mapMutations(['setAuth', 'setUserID'])
@@ -117,4 +126,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.bounce {
+   animation: bounce 0.25s ease-in 1;
+}
+@keyframes bounce {
+   33% {
+      transform: translateX(-10px);
+   }
+   66% {
+      transform: translateX(20px);
+   }
+   100% {
+      transform: translateX(-10px);
+   }
+}
+</style>
