@@ -24,16 +24,16 @@
                </td>
                <td class="px-4">
                   <button
-                     class="border-r border-gray-400"
+                     class="border p-2 border-gray-400"
                      @click="decrement(product)"
                   >
                      -
                   </button>
-                  <span class="border border-gray-400">{{
+                  <span class="border p-2 border-gray-400">{{
                      product.quantity
                   }}</span>
                   <button
-                     class="border-l border-gray-400"
+                     class="border p-2 border-gray-400"
                      @click="add(product)"
                   >
                      +
@@ -126,7 +126,6 @@ export default {
          const stripe = await loadStripe(
             'pk_test_fUqiTKyhnwIbo6DgpMcA2sJb006D2ZXMVX'
          );
-         console.log(stripe);
          stripe.redirectToCheckout({
             lineItems: this.productsToPay,
             mode: 'payment',

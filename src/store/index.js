@@ -167,8 +167,8 @@ export default new Vuex.Store({
          ]
       },
       isAuth: false,
-      userID: null,
-      cart: []
+      cart: [],
+      userID: null
    },
    getters: {
       totalPrice(state) {

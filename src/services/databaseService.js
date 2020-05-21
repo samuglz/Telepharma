@@ -73,6 +73,18 @@ class dbService {
          return error.response;
       }
    }
+
+   async update(userData) {
+      try {
+         const response = await axios.put(
+            `${BASE_API}/users/${userData.id}`,
+            userData
+         );
+         return response;
+      } catch (error) {
+         return error.response;
+      }
+   }
 }
 
 module.exports = dbService;

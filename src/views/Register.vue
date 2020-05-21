@@ -159,7 +159,8 @@ export default {
             password: '',
             firstName: '',
             lastName: '',
-            avatar: ''
+            avatar: '',
+            pedidos: []
          },
          isError: false,
          isLoadedImg: false,

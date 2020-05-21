@@ -3,12 +3,17 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
+import dbService from '@/services/databaseService';
+import { decode } from '@/services/auth';
 export default {
    mounted() {
       setTimeout(() => {
          this.showAlert();
       }, 500);
+   },
+   computed: {
+      ...mapState(['userID', 'cart'])
    },
    methods: {
       showAlert() {
@@ -19,12 +24,20 @@ export default {
             title: 'Tu compra se ha realizado correctamente',
             showConfirmButton: false,
             timer: 2000
-         }).then(() => {
+         }).then(async () => {
+            const api = new dbService();
+            const { sub } = decode(localStorage.getItem('accessToken'));
+            const response = await api.getUser({ id: sub });
+            this.cart.forEach(product => {
+               response.data[0].pedidos.push(product);
+            });
+            response.data[0].password = localStorage.getItem('password');
+            await api.update(response.data[0]);
             this.resetCart();
             this.$router.push('/');
          });
       },
-      ...mapMutations(['resetCart'])
+      ...mapMutations(['resetCart', 'setUserID'])
    }
 };
 </script>
