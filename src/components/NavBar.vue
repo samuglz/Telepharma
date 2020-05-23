@@ -54,9 +54,19 @@ export default {
    methods: {
       ...mapMutations(['setAuth']),
       logout() {
-         this.setAuth(false);
-         localStorage.setItem('accessToken', '');
-         this.$router.push('/');
+         this.$swal({
+            title: '¿Desea cerrar sesión?',
+            icon: 'warning',
+            confirmButtonText: 'Salir',
+            cancelButtonText: 'Cancelar',
+            showCancelButton: true
+         }).then(response => {
+            if (response.value) {
+               this.setAuth(false);
+               localStorage.setItem('accessToken', '');
+               this.$router.push('/');
+            }
+         });
       }
    }
 };
