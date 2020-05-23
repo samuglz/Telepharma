@@ -12,30 +12,22 @@
                <th>Quitar</th>
             </tr>
             <tr v-for="(product, index) in cart" :key="index">
-               <td class="px-4 hidden md:block">
+               <td class="px-2 py-4 hidden md:block">
                   <img
                      class="rounded-full"
                      :src="product.image"
                      alt="IMG_PRODUCT"
                   />
                </td>
-               <td class="px-4">
+               <td class="px-2 text-center">
                   <p>{{ product.name }}</p>
                </td>
-               <td class="px-4">
-                  <button
-                     class="border p-2 border-gray-400"
-                     @click="decrement(product)"
-                  >
+               <td class="px-2">
+                  <button class="p-1" @click="decrement(product)">
                      -
                   </button>
-                  <span class="border p-2 border-gray-400">{{
-                     product.quantity
-                  }}</span>
-                  <button
-                     class="border p-2 border-gray-400"
-                     @click="add(product)"
-                  >
+                  <span>{{ product.quantity }}</span>
+                  <button class="p-1" @click="add(product)">
                      +
                   </button>
                </td>
@@ -44,7 +36,7 @@
                </td>
                <td>
                   <button
-                     class="bg-red-400 px-6 py-2 hover:bg-red-600 mx-1 text-white hover:text-white rounded mt-2"
+                     class="bg-red-400 px-2 md:px-6 py-2 hover:bg-red-600 mx-1 text-white hover:text-white rounded mt-2"
                      @click="deleteProduct(product.id)"
                   >
                      <font-awesome-icon icon="trash" />

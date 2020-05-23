@@ -8,7 +8,13 @@
             <span class="fa-layers-counter text-4xl">{{ cart.length }}</span>
          </font-awesome-layers>
       </button>
-      <div class=" pt-4 shadow-md bg-white rounded-md dropdown-content">
+      <div
+         class="pt-4 shadow-md bg-white rounded-md dropdown-content"
+         :class="{
+            margin: !isAuth,
+            'margin-auth': isAuth
+         }"
+      >
          <div class="flex flex-col">
             <div v-if="cart.length === 0" class="text-center pb-3">
                <span class="text-sm text-gray-500"
@@ -49,7 +55,7 @@ import cartElement from '@/components/CartElement';
 export default {
    name: 'cartPanel',
    computed: {
-      ...mapState(['cart']),
+      ...mapState(['cart', 'isAuth']),
       ...mapGetters(['totalPrice', 'totalUnits']),
       normalizeTotalPrice() {
          return normalizePrice(this.totalPrice);
@@ -75,11 +81,18 @@ export default {
 .dropdown-content {
    display: none;
    position: absolute;
-   right: -2em;
    min-width: 325px;
    max-height: 400px;
    z-index: 1;
    overflow-y: auto;
+}
+
+.margin {
+   right: -2em;
+}
+
+.margin-auth {
+   right: -7em;
 }
 
 .dropdown:hover .dropdown-content {
