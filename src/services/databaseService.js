@@ -1,5 +1,5 @@
 const axios = require('axios');
-const BASE_API = 'http://localhost:3001';
+const BASE_API = 'https://telepharma.herokuapp.com';
 
 class dbService {
    async getAffiliate(field = {}) {
