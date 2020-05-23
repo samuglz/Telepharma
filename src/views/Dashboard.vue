@@ -27,7 +27,11 @@
          </button>
       </div>
       <div v-if="isHistory">
-         <historial :pedidos="userData.pedidos" />
+         <historial
+            v-for="pedido in userData.pedidos"
+            :key="pedido.orderID"
+            :pedido="pedido"
+         />
       </div>
       <div v-if="!isHistory">
          <div class="flex justify-center w-full">
