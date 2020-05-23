@@ -16,7 +16,7 @@
                </p>
             </div>
          </div>
-         <div>TOTAL: {{ totalPrice() }}</div>
+         <div>TOTAL: {{ normalizePrice(totalOrderPrice) }} €</div>
       </div>
    </div>
 </template>
@@ -30,6 +30,9 @@ export default {
          required: true
       }
    },
+   mounted() {
+      this.totalPrice();
+   },
    data() {
       return {
          totalOrderPrice: 0
@@ -40,13 +43,11 @@ export default {
          return normalizePrice(value);
       },
       totalPrice() {
+         let totalCount = 0;
          this.pedido.order.forEach(product => {
-            let count = product.price * product.quantity;
-            console.log(count);
-            this.totalOrderPrice += count;
-            console.log(this.totalOrderPrice);
+            totalCount += product.price * product.quantity;
          });
-         return normalizePrice(this.totalOrderPrice);
+         this.totalOrderPrice = totalCount;
       }
    }
 };
