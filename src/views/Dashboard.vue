@@ -27,6 +27,18 @@
          </button>
       </div>
       <div v-if="isHistory">
+         <div v-if="userData.pedidos.length < 1" class="flex justify-center">
+            <div
+               class="mt-2 mx-2 p-4 bg-white rounded shadow text-center flex flex-col md:w-3/5"
+            >
+               <p>No has realizado pedidos con anterioridad.</p>
+               <router-link
+                  class="hover:underline hover:text-green-800 text-green-400"
+                  to="/"
+                  >Ir a la tienda.</router-link
+               >
+            </div>
+         </div>
          <historial
             v-for="pedido in userData.pedidos"
             :key="pedido.orderID"

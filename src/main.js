@@ -17,7 +17,8 @@ import {
    faSortAmountDown,
    faSortAmountDownAlt,
    faDumpster,
-   faCreditCard
+   faCreditCard,
+   faUndo
 } from '@fortawesome/free-solid-svg-icons';
 import {
    FontAwesomeIcon,
@@ -35,7 +36,8 @@ library.add(
    faSortAmountDown,
    faSortAmountDownAlt,
    faDumpster,
-   faCreditCard
+   faCreditCard,
+   faUndo
 );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('font-awesome-layers', FontAwesomeLayers);

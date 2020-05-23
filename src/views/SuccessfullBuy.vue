@@ -4,6 +4,7 @@
 
 <script>
 import { mapMutations, mapState } from 'vuex';
+import { formatDate } from '@/utils/utils';
 import dbService from '@/services/databaseService';
 import { decode } from '@/services/auth';
 import uniqid from 'uniqid';
@@ -30,8 +31,7 @@ export default {
             const { sub } = decode(localStorage.getItem('accessToken'));
             const response = await api.getUser({ id: sub });
             let date = new Date();
-            date = `${date.getDate()}/${date.getMonth() +
-               1}/${date.getFullYear()}`;
+            date = formatDate(date);
             response.data[0].pedidos.push({
                orderID: uniqid('order-'),
                order: this.cart,
