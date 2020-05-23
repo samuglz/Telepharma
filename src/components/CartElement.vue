@@ -2,13 +2,12 @@
    <div class="mb-4 shadow-md p-3 mx-3 rounded hover:bg-gray-100">
       <div class="flex">
          <img
-            class="rounded-full"
+            class="rounded-full hidden md:block"
             width="70"
-            height="70"
             :src="product.image"
             alt="Image Product"
          />
-         <div class="flex flex-col ml-3">
+         <div class="flex flex-col ml-1 md:ml-3">
             <div class="font-bold text-gray-800">{{ product.name }}.</div>
             <div class="text-blue-400 font-semibold">
                Cantidad:
