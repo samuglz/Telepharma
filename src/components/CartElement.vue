@@ -4,6 +4,7 @@
          <img
             class="rounded-full"
             width="70"
+            height="70"
             :src="product.image"
             alt="Image Product"
          />
