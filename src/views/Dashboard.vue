@@ -191,7 +191,7 @@ export default {
                }
             }
          });
-         this.isEditable = false;
+         this.isEditable = true;
       }
    }
 };

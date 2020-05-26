@@ -45,6 +45,11 @@
             </tr>
          </table>
 
+         <div class="flex justify-center">
+            <span class="font-bold"
+               >TOTAL: {{ normalizePrice(totalPrice) }} €</span
+            >
+         </div>
          <div class="flex justify-center w-full mt-2">
             <button
                class="w-1/2 bg-red-400 px-6 py-2 hover:bg-red-600 mx-1 text-white hover:text-white rounded mt-2"

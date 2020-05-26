@@ -85,6 +85,10 @@ export default {
          if (this.quantity > 1) this.quantity -= 1;
       },
       formatInput() {
+         this.quantity <= 1
+            ? (this.quantity = 1)
+            : (this.quantity = parseInt(this.quantity));
+
          this.quantity === ''
             ? (this.quantity = 1)
             : (this.quantity = parseInt(this.quantity));

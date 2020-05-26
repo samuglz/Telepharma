@@ -117,6 +117,12 @@ export default {
             showConfirmButton: false,
             timer: 1500
          }).then(() => {
+            if (
+               localStorage.getItem('initialPath') === '/login' ||
+               localStorage.getItem('initialPath') === '/register'
+            ) {
+               localStorage.setItem('initialPath', '/');
+            }
             this.$router.push(`${localStorage.getItem('initialPath')}`);
          });
       },
