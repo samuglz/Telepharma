@@ -71,21 +71,21 @@
             />
          </div>
          <div class="rounded mx-3 p-2 bg-white shadow grid grid-cols-2 gap-3">
-            <label for="firstName">Nombre: </label>
+            <label for="firstName">Nombre:</label>
             <input
                name="firstName"
                v-model="userData.firstName"
                type="text"
                :readonly="isEditable"
             />
-            <label for="lastName">Apellidos: </label>
+            <label for="lastName">Apellidos:</label>
             <input
                name="lastName"
                v-model="userData.lastName"
                type="text"
                :readonly="isEditable"
             />
-            <label for="password">Contraseña: </label>
+            <label for="password">Contraseña:</label>
             <input
                placeholder="*****"
                name="password"
@@ -93,11 +93,20 @@
                type="password"
                :readonly="isEditable"
             />
-            <label for="email">Correo: </label>
+            <label for="email">Correo:</label>
             <input
                name="email"
                v-model="userData.email"
                type="email"
+               :readonly="isEditable"
+            />
+
+            <label for="direction">Direccion de envío:</label>
+            <input
+               name="direction"
+               placeholder="Introduzca su direccion de envío"
+               v-model="userData.address"
+               type="text"
                :readonly="isEditable"
             />
          </div>

@@ -2,7 +2,7 @@
    <div class="flex justify-center items-center md:h-screen bg-green-400">
       <div class="w-full max-w-3xl">
          <div class="md:mt-0 md:mb-6 text-center">
-            <h1 class=" text-4xl font-bold text-white">
+            <h1 class="text-4xl font-bold text-white">
                Regístrate en Telepharma
             </h1>
          </div>
@@ -36,9 +36,9 @@
                >
                   Generar Avatar
                </button>
-               <span class="text-gray-600 text-xs mt-2">
-                  ¡Crea tu propio avatar!
-               </span>
+               <span class="text-gray-600 text-xs mt-2"
+                  >¡Crea tu propio avatar!</span
+               >
             </div>
             <div class="md:hidden flex justify-center mt-5">
                <hr class="w-4/5 border-green-400" />
@@ -51,9 +51,8 @@
                   <label
                      class="block text-gray-700 text-sm font-bold mb-2"
                      for="firstName"
+                     >Nombre</label
                   >
-                     Nombre
-                  </label>
                   <input
                      autocomplete="off"
                      title="Lütfen işaretli yerleri doldurunuz"
@@ -69,9 +68,8 @@
                   <label
                      class="block text-gray-700 text-sm font-bold mb-2"
                      for="lastName"
+                     >Apellidos</label
                   >
-                     Apellidos
-                  </label>
                   <input
                      autocomplete="off"
                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -86,9 +84,8 @@
                   <label
                      class="block text-gray-700 text-sm font-bold mb-2"
                      for="email"
+                     >Correo Electrónico</label
                   >
-                     Correo Electrónico
-                  </label>
                   <input
                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                      type="email"
@@ -102,9 +99,8 @@
                   <label
                      class="block text-gray-700 text-sm font-bold mb-2"
                      for="password"
+                     >Contraseña</label
                   >
-                     Contraseña
-                  </label>
                   <input
                      autocomplete="off"
                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -115,7 +111,7 @@
                      required
                   />
                </div>
-               <div class=" w-full">
+               <div class="w-full">
                   <button
                      class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                      type="submit"
@@ -125,9 +121,9 @@
                   <div class="text-sm mt-2 text-gray-600">
                      ¿Ya tienes una cuenta de usuario?
                      <router-link to="/login">
-                        <span class="hover:underline text-green-500 font-bold">
-                           Iniciar sesión
-                        </span>
+                        <span class="hover:underline text-green-500 font-bold"
+                           >Iniciar sesión</span
+                        >
                      </router-link>
                   </div>
                </div>
@@ -160,7 +156,8 @@ export default {
             firstName: '',
             lastName: '',
             avatar: '',
-            pedidos: []
+            pedidos: [],
+            address: ''
          },
          isError: false,
          isLoadedImg: false,
