@@ -12,9 +12,16 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@stripe/stripe-js": "^1.22.0",
+<<<<<<< HEAD
     "axios": "^0.25.0",
     "core-js": "^3.21.0",
     "jsonwebtoken": "^8.5.1",
+=======
+    "axios": "^0.21.2",
+    "core-js": "^3.21.0",
+    "jsonwebtoken": "^8.5.1",
+    "tailwindcss": "^1.4.6",
+>>>>>>> 5fd653a432dff98340e92d7fbabb3c88042a8420
     "uniqid": "^5.4.0",
     "vue": "^2.6.12",
     "vue-js-modal": "^2.0.1",
@@ -39,7 +46,10 @@
     "postcss": "^7.0.39",
     "postcss-clean": "^1.2.2",
     "prettier": "^1.19.1",
+<<<<<<< HEAD
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+=======
+>>>>>>> 5fd653a432dff98340e92d7fbabb3c88042a8420
     "vue-template-compiler": "^2.6.14"
   }
 }
